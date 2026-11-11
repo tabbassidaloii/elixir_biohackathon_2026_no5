@@ -20,130 +20,46 @@ authors:
     role: Conceptualization, Project Lead, Writing – original draft
 affiliations:
   - name: Amsterdam UMC, Amsterdam, The Netherlands
+    ror: 05grdyy37
     index: 1
   - name: The University of Manchester, Manchester, UK
     index: 2
-date: 11 November 2026
+date: November 2026
 cito-bibliography: paper.bib
 event: BH23EU
 biohackathon_name: "BioHackathon Europe 2026"
 biohackathon_url:   "https://biohackathon-europe.org/"
 biohackathon_location: "Barcelona, Spain, 2026"
-group: Project 26
+group: Project 5
 # URL to project git repo --- should contain the actual paper.md:
 git_url: https://github.com/tabbassidaloii/elixir_biohackathon_2026_no5
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: First Author \emph{et al.}
+authors_short: Nevruz \emph{et al.}
 ---
 
 
 # Introduction
 
-As part of the BioHackathon Europe 2023, we here report...
+As part of BioHackathon Europe 2026 in Barcelona, Spain, we report on the development of a lightweight submission and visualization interface designed to share reference community practices across the research data management (RDM) ecosystem.
 
-## Meeting information
+Scientific stakeholder groups across multi-node projects, research institutes, platforms, and domain communities often share interoperability practices as informal know-how embedded in presentation slides, internal wikis, or email threads. This unstructured distribution makes best practices difficult to discover, compare, validate, and reuse. Building on an ongoing ELIXIR Interoperability Platform (EIP) effort to capture community practices using the RDMkit Data Life Cycle framing, this project transitions manual "guided interview" questionnaires into an automated, self-service guided workflow.
 
-If you want to submit a preprint to BioHackrXiv, first check if your meeting is registered. You can find a list
-of meetings [here](https://index.biohackrxiv.org/meetings). If your meeting is missing, please contact your meeting
-organizers. The above list also provides information on the YAML fields with information about the meeting.
+By turning existing community inputs into structured, machine-actionable practice objects exported in JSON and rendered in human-friendly visualizations, this project provides a scalable framework to connect the distributed RDM ecosystem.
 
-The following fields need to be given:
+This document is the official report for Project 5 ("A submission and visualisation interface for sharing community interoperability practices"), developed during BioHackathon Europe 2026 in Barcelona, Spain.
 
-```YAML
-biohackathon_name: "BioHackathon Europe 2023"
-biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Barcelona, Spain, 2023"
-group: Project 26
-git_url: https://github.com/yourOrganization/your_report_repo
+## Scope and Vision
+The primary goal of this project is to create an open-access reference resource where ELIXIR members, community champions, and data stewards can discover, contribute, improve, and reuse structured interoperability processes.
+
+```mermaid
+graph TD;
+    A[Stakeholder / Data Steward] -->|Submits Guided Form| B[Data Stewardship Wizard DSW / Interface];
+    B -->|Generates Practice Object| C[JSON / YAML Export Engine];
+    C -->|Controlled Vocabularies & Ontologies| D[T4FS / EDAM / bio.tools Annotation];
+    D -->|RDM Ecosystem Integration| E[RDMkit / FAIR Cookbook / FAIRsharing];
+    D -->|Renders Visualizations| F[Lifecycle Maps / Comparison Tables / Tool Assemblies];
 ```
-
-The [BioHackrXiv meeting pages](https://index.biohackrxiv.org/meetings) provide content to use for the first
-three fields. The `git_url:` field must have the link to the GitHub repository with your preprint (draft).
-
-## Author information
-
-Information about the authors is given in the [YAML](https://en.wikipedia.org/wiki/YAML) format at the top of this template.
-For authors you provide their names, their affiliations. That is the minimum, but as BioHackrXiv is moving to a situation
-where more metadata is shared, and used by, for example, EuropePMC, adding additional information ie encouraged.
-
-BioHackathons is about hacking together, and the minimal number of authors for reports is two. This makes a minimal example
-look like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-  - name: Last Author
-    affiliation: 2
-affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: ELIXIR Europe
-    index: 2
-```
-
-### Author identifiers
-
-Ideally, authors provide their [ORCID](https://orcid.org/) identifier. For affiliations, It is added with the `orcid:` field.
-So, and author record would look like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    orcid: 0000-0000-0000-0000
-```
-
-### Research Organization Registry identifiers
-
-Matching the author identifier, the affiliations can be further specified with the
-[Research Organization Registry](https://ror.org/) (ROR) identifier.
-For example, this is the affiliation identifier can be added with the `ror:` field:
-
-```yaml
-affiliations:
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
-```
-
-### Contributor Role Taxonomy
-
-A last feature since is minimal support for the Contributor Role Taxonomy (CRediT). You
-can specify the role of authors in writing the report with the `role:` field. However,
-the authors are responsible for selection the right terms from [CRediT](https://credit.niso.org/).
-An example looks like this:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    orcid: 0000-0000-0000-0000
-    role: Conceptualization, Writing – review & editing
-```
-
-### A full examples
-
-A full example then has this structure:
-
-```yaml
-authors:
-  - name: First Author
-    affiliation: 1
-    role: Writing – original draft
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
-    affiliation: 2
-    role: Conceptualization, Writing – review & editing
-affiliations:
-  - name: First Affiliation
-    index: 1
-  - name: ELIXIR Europe
-    ror: 044rwnt51
-    index: 2
-```
-
 # Formatting
 
 This document use Markdown and you can look at [this tutorial](https://www.markdowntutorial.com/).
