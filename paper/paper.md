@@ -54,31 +54,35 @@ The primary goal of this project is to create an open-access reference resource 
 
 ```mermaid
 graph TD;
+    subgraph Master Vocabulary Repository
+        OPT[Master Options JSON File<br/>Central Controlled Vocabulary Store]
+    end
+
     subgraph Data Entry & Ingestion
-        A1[Fill Questionnaire in DSW] -->|Export DSW File| B1[Upload DSW Output to UI]
-        A2[Fill Questions Directly on UI] --> C[Submission & Visualisation UI]
+        OPT -->|Populates Dropdown Options| A1[Fill Questionnaire in DSW]
+        OPT -->|Populates Dropdown Options| A2[Fill Questions Directly on UI]
+        A1 -->|Export DSW File| B1[Upload DSW Output to UI]
+        A2 --> C[Submission & Visualisation UI]
         A3[Existing Practice JSON] -->|Load JSON| C
         B1 --> C
     end
 
     subgraph Controlled Vocabulary & LLM Mapping
-        C -->|Pre-mapped Controlled Vocabularies| D1[Dropdown Options: T4FS / EDAM / bio.tools]
-        C -->|Free-Text Input| D2[LLM Ontology Suggester]
+        C -->|Select Pre-mapped Choice| D1[Dropdown Options: T4FS / EDAM / bio.tools]
+        C -->|Enter Free-Text Answer| D2[LLM Ontology Suggester]
         D2 -->|Review & Confirm Mapping| C
     end
 
     subgraph User Visualisation & Comparative Analysis
-        C -->|Submit Answer| E1[Network Graph Visualisation]
+        C -->|Submit Practice Object| E1[Network Graph Visualisation]
         E1 -->|Cross-Comparison| E2[Compare with Historical Community Responses]
         E1 -->|Export Diagrams| E3[Download SVG / PNG / JSON]
     end
 
     subgraph Admin Validation & Feedback Loop
         C -->|Submit for Curation| F1[Admin Review & Semantic QC]
-        F1 -->|Sanity Check: e.g. Role vs Process| F2[Validate Free-Text Mappings]
-        F2 -->|Add Approved Terms| F3[Master JSON Vocabulary File]
-        F3 -->|Feed Options Back| A1
-        F3 -->|Feed Options Back| C
+        F1 -->|Sanity Check: e.g. Role vs Process| F2[Validate Free-Text & Ontology Mappings]
+        F2 -->|Add Approved New Options| OPT
     end
 ```
 
