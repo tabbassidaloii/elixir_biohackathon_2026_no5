@@ -141,142 +141,15 @@ graph TD;
     end
 ```
 
-# Formatting
 
-This document use Markdown and you can look at [this tutorial](https://www.markdowntutorial.com/).
+## Visualisation requirements
 
-## Subsection level 2
+The design discussions identified several levels of inspection:
 
-Please keep sections to a maximum of only two levels.
+1. A community-level view organised around the research data lifecycle.
+2. A multi-community view for comparison across domains or topics.
+3. A phase-level view covering one or more selected lifecycle stages.
+4. A task-level view exposing tools, inputs, outputs, roles, contributions, and the original answer when a suggested mapping has been applied.
 
-## Tables
+Suggested interaction patterns included a lifecycle wheel, search by topic or data type, visual indication of incomplete sections, and a detail card for an individual task. Additional perspectives considered included data-centred, role-centred, community-centred, and Node-expertise views.
 
-Tables can be added in the following way, though alternatives are possible:
-
-```markdown
-Table: Note that table caption is automatically numbered and should be
-given before the table itself.
-
-| Header 1 | Header 2 |
-| -------- | -------- |
-| item 1 | item 2 |
-| item 3 | item 4 |
-```
-
-This gives:
-
-Table: Note that table caption is automatically numbered and should be
-given before the table itself.
-
-| Header 1 | Header 2 |
-| -------- | -------- |
-| item 1 | item 2 |
-| item 3 | item 4 |
-
-## Figures
-
-A figure is added with:
-
-```markdown
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
-```
-
-This gives:
-
-![Caption for BioHackrXiv logo figure \label{figureCode}](./biohackrxiv.png)
-
-Figures can be scaled by adding the width or height to the Markdown like this:
-
-```markdown
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png){ width=50px }
-```
-
-You can add cross references to figures by adding a LaTeX `\label{figureCode}` to
-the label of the Markdown figure and then use `\ref{figureCode}` to cite it:
-
-```markdown
-![Caption for BioHackrXiv logo figure \label{figureCode}](./biohackrxiv.png){ width=50px }
-```
-
-This way, we can cite Figure \ref{figureCode}.
-
-## Mermaid graphs
-
-[Mermaid](https://mermaid.js.org/) provides a solution to put diagrams in Markdown. BioHackrXiv
-added support for this in 2026. This is an example of embedding a graph:
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-# Other main section on your manuscript level 1
-
-Lists can be added with:
-
-1. Item 1
-2. Item 2
-
-# Citation Typing Ontology annotation
-
-You can use [CiTO](http://purl.org/spar/cito/2018-02-12) annotations, as explained in [this BioHackathon Europe 2021 write up](https://raw.githubusercontent.com/biohackrxiv/bhxiv-metadata/main/doc/elixir_biohackathon2021/paper.md) and [this CiTO Pilot](https://www.biomedcentral.com/collections/cito).
-Using this template, you can cite an article and indicate _why_ you cite that article, for instance DisGeNET-RDF [@citesAsAuthority:Queralt2016].
-
-The syntax in Markdown is as follows: a single intention annotation looks like
-`[@usesMethodIn:Krewinkel2017]`; two or more intentions are separated
-with colons, like `[@extends:discusses:Nielsen2017Scholia]`. When you cite two
-different articles, you use this syntax: `[@citesAsDataSource:Ammar2022ETL; @citesAsDataSource:Arend2022BioHackEU22]`.
-
-Possible CiTO typing annotation include:
-
-* citesAsDataSource: when you point the reader to a source of data which may explain a claim
-* usesDataFrom: when you reuse somehow (and elaborate on) the data in the cited entity
-* usesMethodIn
-* citesAsAuthority
-* citesAsEvidence
-* citesAsPotentialSolution
-* citesAsRecommendedReading
-* citesAsRelated
-* citesAsSourceDocument
-* citesForInformation
-* confirms
-* documents
-* providesDataFor
-* obtainsSupportFrom
-* discusses
-* extends
-* agreesWith
-* disagreesWith
-* updates
-
-There is a general `cites` intention, but this is already implied and should be left out.
-
-# Results
-
-
-# Discussion
-
-...
-
-## Acknowledgements
-
-...
-
-# References
-
-```{=latex}
-\AtEndDocument{%
-```
-
-# Appendices
-
-If you want the Appendix (-ces) to show up after the references, wrap them in 
-after the header, like done in this Markdown file. Look at the [source](paper.md)
-to see the exact structure.
-
-```{=latex}
-}
-```
