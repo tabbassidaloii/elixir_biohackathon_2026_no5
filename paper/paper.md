@@ -1,33 +1,37 @@
 ---
-title: 'BioHackEU23 report: Template for the very long title'
-title_short: 'BioHackEU23 #26: unknown chemical substances'
+title: 'BioHackEU26 report: Expanding FAIR database integration through elucidation and transformation of underlying graph schemas.'
+title_short: 'BioHackEU26 #5: a submission and visualisation interface'
 tags:
-  - cheminformatics
-  - PubChem
-  - unknown chemical substances
+  - community practices
+  - interoperability
+  - ontologies
+  - FAIR workflows
 authors:
-  - name: First Author
+  - name: Bilgehan Nevruz
     affiliation: 1
-    role: Writing – original draft
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
+    role: Project Lead, Software, Visualization, Writing – review & editing
+  - name: Nick Juty
+    orcid: 0000-0002-2036-8350
     affiliation: 2
-    role: Conceptualization, Writing – review & editing
+    role: Conceptualization, Project Lead, Writing – review & editing
+  - name: Tooba Abbassi-Daloii
+    orcid: 0000-0002-4904-3269
+    affiliation: 1
+    role: Conceptualization, Project Lead, Writing – original draft
 affiliations:
-  - name: First Affiliation
+  - name: Amsterdam UMC, Amsterdam, The Netherlands
     index: 1
-  - name: ELIXIR Europe
-    ror: 044rwnt51
+  - name: The University of Manchester, Manchester, UK
     index: 2
-date: 8 November 2023
+date: 11 November 2026
 cito-bibliography: paper.bib
 event: BH23EU
-biohackathon_name: "BioHackathon Europe 2023"
+biohackathon_name: "BioHackathon Europe 2026"
 biohackathon_url:   "https://biohackathon-europe.org/"
-biohackathon_location: "Barcelona, Spain, 2023"
+biohackathon_location: "Barcelona, Spain, 2026"
 group: Project 26
 # URL to project git repo --- should contain the actual paper.md:
-git_url: https://github.com/biohackrxiv/publication-template
+git_url: https://github.com/tabbassidaloii/elixir_biohackathon_2026_no5
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
 authors_short: First Author \emph{et al.}
