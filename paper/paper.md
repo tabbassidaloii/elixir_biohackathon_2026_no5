@@ -53,12 +53,25 @@ This document is the official report for Project 5 ("A submission and visualisat
 The primary goal of this project is to create an open-access reference resource where ELIXIR members, community champions, and data stewards can discover, contribute, improve, and reuse structured interoperability processes.
 
 ```mermaid
+```mermaid
 graph TD;
-    A[Stakeholder / Data Steward] -->|Submits Guided Form| B[Data Stewardship Wizard DSW / Interface];
-    B -->|Generates Practice Object| C[JSON / YAML Export Engine];
-    C -->|Controlled Vocabularies & Ontologies| D[T4FS / EDAM / bio.tools Annotation];
-    D -->|RDM Ecosystem Integration| E[RDMkit / FAIR Cookbook / FAIRsharing];
-    D -->|Renders Visualizations| F[Lifecycle Maps / Comparison Tables / Tool Assemblies];
+    subgraph Data Entry & Ingestion
+        A1[Fill Questionnaire in DSW] -->|Export DSW Output| B1[Upload DSW Output to UI]
+        A2[Fill Questions directly in UI] --> C[Submission & Visualisation UI]
+        A3[Existing Practice JSON] -->|Load JSON| C
+        B1 --> C
+    end
+
+    subgraph Data Persistence & Processing
+        C <-->|Save / Load JSON| D1[JSON File Storage]
+        C --> D2[Controlled Vocabulary & Ontology Mapping<br/>T4FS / EDAM / bio.tools]
+    end
+
+    subgraph Visualisation & Ecosystem Integration
+        D2 --> E1[RDM Ecosystem Integration<br/>RDMkit / FAIR Cookbook / FAIRsharing]
+        D2 --> E2[Render Visualisations<br/>Lifecycle Maps / Comparison Tables / Tool Assemblies]
+    end
+```
 ```
 # Formatting
 
