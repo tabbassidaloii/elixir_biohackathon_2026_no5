@@ -55,20 +55,30 @@ The primary goal of this project is to create an open-access reference resource 
 ```mermaid
 graph TD;
     subgraph Data Entry & Ingestion
-        A1[Fill Questionnaire in DSW] -->|Export DSW Output| B1[Upload DSW Output to UI]
-        A2[Fill Questions directly in UI] --> C[Submission & Visualisation UI]
+        A1[Fill Questionnaire in DSW] -->|Export DSW File| B1[Upload DSW Output to UI]
+        A2[Fill Questions Directly on UI] --> C[Submission & Visualisation UI]
         A3[Existing Practice JSON] -->|Load JSON| C
         B1 --> C
     end
 
-    subgraph Data Persistence & Processing
-        C <-->|Save / Load JSON| D1[JSON File Storage]
-        C --> D2[Controlled Vocabulary & Ontology Mapping<br/>T4FS / EDAM / bio.tools]
+    subgraph Controlled Vocabulary & LLM Mapping
+        C -->|Pre-mapped Controlled Vocabularies| D1[Dropdown Options: T4FS / EDAM / bio.tools]
+        C -->|Free-Text Input| D2[LLM Ontology Suggester]
+        D2 -->|Review & Confirm Mapping| C
     end
 
-    subgraph Visualisation & Ecosystem Integration
-        D2 --> E1[RDM Ecosystem Integration<br/>RDMkit / FAIR Cookbook / FAIRsharing]
-        D2 --> E2[Render Visualisations<br/>Lifecycle Maps / Comparison Tables / Tool Assemblies]
+    subgraph User Visualisation & Comparative Analysis
+        C -->|Submit Answer| E1[Network Graph Visualisation]
+        E1 -->|Cross-Comparison| E2[Compare with Historical Community Responses]
+        E1 -->|Export Diagrams| E3[Download SVG / PNG / JSON]
+    end
+
+    subgraph Admin Validation & Feedback Loop
+        C -->|Submit for Curation| F1[Admin Review & Semantic QC]
+        F1 -->|Sanity Check: e.g. Role vs Process| F2[Validate Free-Text Mappings]
+        F2 -->|Add Approved Terms| F3[Master JSON Vocabulary File]
+        F3 -->|Feed Options Back| A1
+        F3 -->|Feed Options Back| C
     end
 ```
 
