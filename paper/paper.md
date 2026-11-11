@@ -53,7 +53,6 @@ This document is the official report for Project 5 ("A submission and visualisat
 The primary goal of this project is to create an open-access reference resource where ELIXIR members, community champions, and data stewards can discover, contribute, improve, and reuse structured interoperability processes.
 
 ```mermaid
-```mermaid
 graph TD;
     subgraph Data Entry & Ingestion
         A1[Fill Questionnaire in DSW] -->|Export DSW Output| B1[Upload DSW Output to UI]
@@ -72,7 +71,7 @@ graph TD;
         D2 --> E2[Render Visualisations<br/>Lifecycle Maps / Comparison Tables / Tool Assemblies]
     end
 ```
-```
+
 # Formatting
 
 This document use Markdown and you can look at [this tutorial](https://www.markdowntutorial.com/).
