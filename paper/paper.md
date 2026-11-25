@@ -47,13 +47,14 @@ Research communities regularly encounter the same practical challenges: capturin
 
 An ongoing ELIXIR Interoperability Platform effort has been collecting these practices through guided interviews structured around the RDMkit Data Life Cycle. Having a facilitator helps respondents interpret the questions, but relying on one-on-one interviews and manual synthesis does not scale well. In Project 5, we set out to turn this interview process into a lightweight, self-service workflow that records practices in their community context and connects them to relevant resources such as FAIRsharing, bio.tools, software repositories, repository registries, standards, and ontologies.
 
-Our work focused on five main objectives:
+Our work focused on six main objectives:
 
 1. Convert the guided questionnaire into a self-service submission workflow.
 2. Represent submitted practices in structured, machine-readable formats (JSON and YAML).
 3. Link applicable fields to ontologies, registries, standards, databases, and role vocabularies.
-4. Define visual views ranging from high-level community overviews to detailed breakdowns of tasks, tools, inputs, outputs, and contributors.
-5. Set up a review process so validated free-text answers can be added to the dropdown options for future submissions.
+4. Refine the DSW Knowledge Model integrating selected ontologies, registries, vocabolaries 
+5. Define visual views ranging from high-level community overviews to detailed breakdowns of tasks, tools, inputs, outputs, and contributors.
+6. Set up a review process so validated free-text answers can be added to the dropdown options for future submissions.
 
 Target users include researchers looking for examples from similar domains, data stewards documenting local practices, community coordinators, and maintainers of RDM resources.
 
@@ -129,8 +130,8 @@ Table: Summary of questionnaire sections mapped to resource types and candidate 
 | Lifecycle section | Target concepts | Resource types | Candidate ontologies and registries |
 | :--- | :--- | :--- | :--- |
 | **1. Plan** | Authoring tools, storage, validation, guidance, roles | tool, database, registry, individual document, community standard, roles | DSW, FAIRsharing, RDMkit, `T4FS` |
-| **2. Collect** | Object types, formats, SOPs, persistent identifiers, QA roles | ontology, tool, community standard, registry, roles | EDAM (`format`), FAIRsharing, DataCite, `T4FS` |
-| **3. Process** | Cleaning steps, standardisation, integrity checks, QC roles | tool, community standard, roles | EDAM (`operation`), WorkflowHub, `T4FS` |
+| **2. Collect** | Object types, formats, SOPs, persistent identifiers, QA roles | ontology, tool, community standard, registry, roles | EDAM (`format`), OLS, FAIRsharing, DataCite, `T4FS` |
+| **3. Process** | Cleaning steps, standardisation, integrity checks, QC roles | tool, community standard, roles | EDAM (`operation`), OLS, WorkflowHub, `T4FS` |
 | **4. Analyse** | Analytical methods, software, reproducibility, visualisation, training | ontology, tool, registry, community standard, roles | EDAM, SWO, bio.tools, ELIXIR TeSS, FAIR Cookbook |
 | **5. Preserve** | Repositories, backups, archiving policies, certification | database, tool, individual document, community standard, roles | re3data, FAIRsharing, CoreTrustSeal, `T4FS` |
 | **6. Share** | Shared objects, platforms, legal/ethical constraints, metadata | database, individual document, community standard, roles | Zenodo, ENA, DUO, Dublin Core, `T4FS` |
