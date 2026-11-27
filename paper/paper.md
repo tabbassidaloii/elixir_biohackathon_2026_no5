@@ -46,21 +46,21 @@ authors_short: Nevruz, B. \emph{et al.}
 
 Interoperability practices developed within research projects, institutes, and scientific communities are often scattered across presentation slides, internal wikis, spreadsheets, and email threads. Because they are rarely documented in a consistent format, these practices are hard to find, compare, and reuse. In Project 5 at BioHackathon Europe 2026, we developed a self-service submission and visualisation workflow built around the RDMkit Data Life Cycle.
 
-We reviewed an existing 41-question lifecycle survey and mapped its fields to relevant controlled vocabularies, ontologies, registries, and community standards. Based on this mapping, we designed a workflow that combines dropdown selections with free-text inputs and curator-reviewed term suggestions. Submitted practices can be exported in machine-readable formats (JSON and YAML) and explored across different visual views, while keeping the respondents' original descriptions intact. Hosted on GitHub Pages alongside public documentation, the platform gives communities an open, maintainable way to share, compare, and refine their interoperability practices.
+Historically we have tried to capture these community practices through surveys, spreadsheets and guided interviews. These methodologies do not scale, are not easily systematically applied, are time-consuming, and questions and answers often require post-collection harmonisation and integration. For those reasons, we have implemented a portal to simplify this process, and to visualise those best practices. We firstly reviewed our existing 41-question lifecycle survey questions and mapped its expected answers (fields) to relevant controlled vocabularies, ontologies, registries, and community standards. For example, questions around databases used for source data or upload destinations for data can be prepopulated from a registry of 'databases' such as FAIRsharing. Based on such information, we designed an interface which provides dropdown selections from these 'dropdown sources'. Furthermore, where a contribution from a submitter cannot be provided from a suitable dropdown option, we incorporate free-text inputs which are subsequently curator-reviewed and an appropriate mapping to a resource is then fed back to the drop down options for future contributors. Submitted practices can be exported in machine-readable formats (JSON and YAML) and explored across different visual views, while keeping the respondents' original descriptions intact, capturing information necessary for attribution and credit. Hosted on GitHub Pages alongside public documentation, the platform gives communities an open, maintainable way to share, compare, and refine their interoperability practices.
 
 # Introduction
 
-Research communities regularly encounter the same practical challenges: capturing data and metadata, choosing identifiers and file formats, selecting tools, depositing outputs, and maintaining reproducibility. Because these practices are typically documented informally for local audiences, researchers and data stewards struggle to see how comparable domains handle similar tasks or which standards they apply.
+Research communities regularly encounter the same practical challenges: capturing data and metadata, choosing identifiers and file formats, selecting tools, depositing outputs, and maintaining reproducibility. Because these practices are typically documented informally for local audiences or within particular specialised communities of researchers, interested external parties such as data stewards or researchers working cross domain or those new to a field struggle to see how those domains undertake particular tasks, which resources, tools, standards or formats they typically use.
 
 An ongoing ELIXIR Interoperability Platform effort has been collecting these practices through guided interviews structured around the RDMkit Data Life Cycle. Having a facilitator helps respondents interpret the questions, but relying on one-on-one interviews and manual synthesis does not scale well. In Project 5, we set out to turn this interview process into a lightweight, self-service workflow that records practices in their community context and connects them to relevant resources such as FAIRsharing, bio.tools, software repositories, repository registries, standards, and ontologies.
 
 Our work focused on five main objectives:
 
-1. Convert the guided questionnaire into a self-service submission workflow.
-2. Represent submitted practices in structured, machine-readable formats (JSON and YAML).
-3. Link applicable fields to ontologies, registries, standards, databases, and role vocabularies.
-4. Define visual views ranging from high-level community overviews to detailed breakdowns of tasks, tools, inputs, outputs, and contributors.
-5. Set up a review process so validated free-text answers can be added to the dropdown options for future submissions.
+1. Convert the guided questionnaire into a self-service submission workflow, simplifying contribution and downstream integration.
+2. Represent submitted practices in structured, machine-readable formats (JSON and YAML), enabling standardised import/export into other systems and processes.
+3. Link applicable fields to ontologies, registries, standards, databases, and role vocabularies, enabling interlinking into RDM ecosystem resources.
+4. Define visual views ranging from high-level community overviews to detailed breakdowns of tasks, tools, inputs, outputs, and contributors, enabling insightful query to facilitate future research and to recognise important components of the ecosyste.
+5. Set up a review process so validated free-text answers can be added to the dropdown options for future submissions, enabling the creation of a comprehensive and extensible cross-community resource.
 
 Target users include researchers looking for examples from similar domains, data stewards documenting local practices, community coordinators, and maintainers of RDM resources.
 
@@ -72,11 +72,11 @@ Starting from the existing lifecycle questionnaire, synthesis spreadsheets, and 
 
 ## Questionnaire and terminology mapping
 
-We went through each survey question to identify what concept it captures, what type of resource applies, and which controlled terms or registries could populate a dropdown menu or automated suggestion. These mappings are meant to supplement, not overwrite, the respondent's original wording, and they remain subject to human review.
+We went through each survey question to identify which concept it captures, to what type of resource applies, and which controlled terms or registries could be used to pre-populate a dropdown menu for automated suggestions to the user/contributor. These mappings are meant to supplement, not overwrite, the respondent's original wording, which is stored. Free text contributions are subject to human review, and are stored for posterity. 
 
 ## Submission and curation workflow
 
-Users can enter data in three ways: by filling out the questionnaire in the Data Stewardship Wizard (DSW) and importing the output, by completing the form directly in the web interface, or by loading an existing JSON practice file. A central JSON file supplies the reviewed dropdown options to both DSW and the web interface.
+Users can enter data in three ways: by filling out the questionnaire in the Data Stewardship Wizard (DSW) and importing the output, by completing the form directly in the web interface, or by loading an existing (for example where someone started a submission but did not finish) JSON practice file. A common central JSON file supplies the reviewed dropdown options to both DSW and the web interface, ensuring consistency between submission interfaces.
 
 When none of the listed options fit, respondents can enter free text. An LLM-assisted step suggests matching ontology or registry terms, which the user reviews before submitting. Before any new free-text terms are added to the shared options file, an administrator checks that they fit the question context—for instance, making sure a workflow step is not entered where a role is expected.
 
@@ -120,7 +120,7 @@ We defined four levels of detail for exploring the submitted practices:
 
 1. **Community view:** An overview of a single community's practices across the RDM lifecycle.
 2. **Multi-community view:** A side-by-side comparison across different domains or projects.
-3. **Phase view:** A focused look at one or more selected lifecycle stages.
+3. **Phase view:** A focused look at one or more selected RDM data lifecycle stages.
 4. **Task view:** A detail card showing the tools, inputs, outputs, and roles for a specific task, along with both the mapped terms and the respondent's original text.
 
 We also outlined supporting interface features, including a lifecycle wheel, search by topic or data type, visual markers for incomplete sections, and filtering by data type, role, community, or ELIXIR Node expertise.
@@ -159,15 +159,17 @@ We created UI mockups for the lifecycle wheel, search bar, greyed-out incomplete
 
 Discussions with other BioHackathon projects helped clarify our data model and integration plans:
 
-- **Credit and recognition (Project #6):** Conversations with Project #6 highlighted three open design questions for attribution: accounting for differences in a person's role and resourcing across a project, institute, or infrastructure; allowing multiple people or roles to be attached so credit is not limited to a single team representative; and crediting individual tasks and task components (such as specific tools used within a step) rather than only the whole submission.
-- **Tool registries (Project #20):** Discussions with `bio.tools` developers focused on pushing tool-usage information from submitted practices to the registry, specifically which tool is used in a task and at which stage of the data lifecycle. While `bio.tools` already supports `EDAM:operation`, their team noted they may adjust their data model to better capture lifecycle context.
+- **Credit and recognition (Project #6):** Conversations with Project #6 highlighted three open design questions for attribution: accounting for differences in a person's role and resourcing across a project, institute, or infrastructure; allowing multiple people or roles to be attached so credit is not limited to a single team representative; _and crediting individual tasks and task components (such as specific tools used within a step) rather than only the whole submission._(I'm not sure about this bit - Nick)
+- **Tool registries (Project #20):** Initial discussions with `bio.tools` developers focused on pushing tool-usage information from submitted practices to the registry, specifically which tool is used in a task and at which stage of the data lifecycle. While `bio.tools` already supports `EDAM:operation`, their team noted they may adjust their data model to better capture lifecycle context.
 - **Semantic framework standards (Project #3):** We checked for overlap with Project #3 and identified their group as potential contributors of community practice records.
+
+- Discussions around interface implementation were also undertaken with various individuals, including UX experts working in other project teams. Input was also received from the ELIXIR Atlas team.
 
 ## Remaining decisions and next steps
 
-1. **Refining the questionnaire-to-resource mapping:** Review and validate the initial mapping across all 41 questions with domain experts and ontology maintainers to confirm that the selected vocabularies, registries, and dropdown options fit each field.
-2. **Syncing with existing RDM resources:** Set up automated workflows to exchange practice records and updated vocabulary lists between GitHub, RDMkit Tool Assemblies, DSW knowledge models, and FAIRsharing.
-3. **Curation rules and production setup:** Move the LLM term-suggestion step into production and agree on clear review criteria for pull requests and new dropdown options.
+1. **Refining the questionnaire-to-resource mapping:** Review and validate the initial mapping across all 41 questions with domain experts and ontology maintainers to confirm that the selected vocabularies, registries, and dropdown options fit each field. We have also allowed feedback in the interface for each question, for example enabling submitters to highlight missing resources that could be used to populate the dropdown selections.
+2. **Syncing with existing RDM resources:** Set up automated workflows to exchange practice records and updated vocabulary lists between GitHub, RDMkit Tool Assemblies, DSW knowledge models, and FAIRsharing. Initial discussions are underway with bio.tools, and are slightly more advanced with RDMkit and FAIRsharing.
+3. **Curation rules and production setup:** Move the LLM term-suggestion step into production and agree on clear review criteria for pull requests and new dropdown options. Create an 'admin' team and agree a process to review 'free text' mappings.
 4. **Broader testing and naming:** Add example practices from more domains, test the interface with data stewards, and choose a permanent name for the tool.
 
 ## Acknowledgements
